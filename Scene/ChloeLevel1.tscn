@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Characters/Player2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Chloe.tscn" type="PackedScene" id=2]
+
+[node name="ChloeLevel1" type="Node2D" index="0"]
+
+[node name="Player2D" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 475.015, 981.322 )
+
+[node name="PNJ" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 1040.92, 982.187 )
+
+

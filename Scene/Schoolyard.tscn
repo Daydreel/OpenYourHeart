@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Characters/Player2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Jeremie.tscn" type="PackedScene" id=2]
+
+[node name="Schoolyard" type="Node2D" index="0"]
+
+[node name="Player2D" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( 454, 323 )
+z_index = 100
+_sections_unfolded = [ "Collision", "Z Index" ]
+
+[node name="Jeremie" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 727.964, 432.136 )
+
+

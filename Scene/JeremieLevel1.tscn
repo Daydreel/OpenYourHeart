@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scene/JeremieLevel1.gd" type="Script" id=1]
+[ext_resource path="res://Characters/Player2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Characters/Jeremie.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 216.223, 28.0029 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 57.5701, 63.7874 )
+
+[node name="JeremieLevel1" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Player2D" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 715.428, 979.096 )
+
+[node name="Jeremie" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 1224.37, 979.096 )
+
+[node name="Node2D" type="Node2D" parent="." index="2"]
+
+modulate = Color( 0.800781, 0.11261, 0.11261, 1 )
+position = Vector2( 1215.89, 871.835 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="EndOfConscience" type="Area2D" parent="." index="3"]
+
+editor/display_folded = true
+modulate = Color( 1, 0, 0, 1 )
+self_modulate = Color( 0, 0.132813, 1, 1 )
+position = Vector2( 1228.5, 794.989 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndOfConscience" index="0"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TimeToTalk" type="Area2D" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( 1226.62, 861.901 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 0
+collision_mask = 8
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TimeToTalk" index="0"]
+
+shape = SubResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WordRythm" type="Timer" parent="." index="5"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[connection signal="body_entered" from="EndOfConscience" to="." method="_on_EndOfConscience_body_entered"]
+
+[connection signal="input_event" from="TimeToTalk" to="." method="_on_TimeToTalk_input_event"]
+
+[connection signal="timeout" from="WordRythm" to="." method="_on_WordRythm_timeout"]
+
+
